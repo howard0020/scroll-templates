@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Full Page Scroll</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/fullpage.js/jquery.fullPage.css">
+    <link rel="stylesheet" href="bower_components/FlipClock/compiled/flipclock.css">
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div id="fullpage" class="container-fluid">
+    <div class="section">
+        <div class="row arrow-box half-page text-center">
+            <span id="logo" class="glyphicon glyphicon-cloud"></span>
+            <h1>OUR NEW PRODUCT</h1>
+            <h1>IS COMING SOON</h1>
+            <h4>Be ready for a new experience</h4>
+        </div>
+        <div class="row half-page bg-info vertical-container">
+            <div class="row padding-top-40">
+                <div class="col-md-6 text-center">
+                    <h2>Limited Time Offer</h2>
+                    <div class="count-down-clock padding-top-20"></div>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-success btn-lg">Register Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section ">
+        <div class="row arrow-box half-page">
+            <div class="col-xs-12 col-md-6">Some section 1 left column</div>
+            <div class="col-xs-12 col-md-6">Some section 1 right column</div>
+        </div>
+        <div class="row bg-primary half-page">Some section 1.2</div>
+    </div>
+    <div class="section bg-success">Some section 3</div>
+</div>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/fullpage.js/jquery.fullPage.js"></script>
+<script src="bower_components/FlipClock/compiled/flipclock.min.js"> </script>
+<script>
+    $(document).ready(function () {
+        $('#fullpage').fullpage();
+
+        // Grab the current date
+        var currentDate = new Date();
+        // Set some date in the future. In this case, it's always Jan 1
+        var futureDate  = new Date(2015, 6, 1);
+        // Calculate the difference in seconds between the future and current date
+        var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+        var countDownClock = $('.count-down-clock').FlipClock(diff, {
+            countdown: true,
+            clockFace: 'DailyCounter'
+        });
+    });
+</script>
+</body>
+</html>
